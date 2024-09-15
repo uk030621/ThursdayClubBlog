@@ -12,12 +12,12 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="app" >
         <div>
-        <nav>
+        <nav style={{paddingBottom:'20px', paddingTop:'20px'}}>
           {/* Global navigation or other components */}
           <ul>
-            <li style={{color:'white', marginLeft:'10px', fontFamily:'arial'}}>Thursday Club Blog</li>
-            <li><a href="/">Home</a></li>
-            <li><a href="/create">Create Post</a></li>
+            <li style={{color:'white', marginLeft:'10px', fontFamily:'arial', fontWeight:'bold'}}>Thursday Club Blog</li>
+            <li style={{fontFamily:'arial'}}><a href="/">Home</a></li>
+            <li style={{fontFamily:'arial'}} ><a href="/create">Create Post</a></li>
           </ul>
         </nav>
         {children} {/* This renders the specific page content */}

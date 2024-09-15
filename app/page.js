@@ -51,7 +51,7 @@ function Home() {
 
     return (
         <div className="home">
-            <h2>Recent Posts</h2>
+            <h2 style={{fontFamily:'arial'}}>Recent Posts</h2>
             {posts.map((post) => (
                 <div key={post._id} className="post">
                     <h3>{post.title}</h3>
