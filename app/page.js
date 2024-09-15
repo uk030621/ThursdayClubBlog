@@ -1,95 +1,89 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+//app/page.js
+"use client"
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+function Home() {
+    const [posts, setPosts] = useState([]);
+    const [commentText, setCommentText] = useState('');
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+    useEffect(() => {
+        axios
+            .get('/api/posts')
+            .then((response) => setPosts(response.data))
+            .catch((error) => console.error(
+                'Error fetching posts:', error));
+    }, []);
+
+    const handleLike = async (id) => {
+        try {
+            const response = await axios.put('/api/posts', {
+                id, action: 'like'
+            });
+            setPosts(posts.map(
+                (post) => (post._id === id ? response.data : post)));
+        } catch (error) {
+            console.error('Error liking post:', error);
+        }
+    };
+
+    const handleComment = async (id, text) => {
+        try {
+            const response = await axios.put('/api/posts', {
+                id, action: 'comment', text
+            });
+            setPosts(posts.map(
+                (post) => (post._id === id ? response.data : post)));
+            setCommentText(''); // Reset comment text after posting
+        } catch (error) {
+            console.error('Error commenting on post:', error);
+        }
+    };
+
+    const convertImageToBase64 = async (file) => {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = (error) => reject(error);
+        });
+    };
+
+    return (
+        <div className="home">
+            <h2>Recent Posts</h2>
+            {posts.map((post) => (
+                <div key={post._id} className="post">
+                    <h3>{post.title}</h3>
+                    <p>{post.content}</p>
+                    {post.file && (
+                        <div>
+                            <img src={post.file} alt="Post" />
+                        </div>
+                    )}
+                    <p>Likes: {post.likes}</p>
+                    <button onClick={() => handleLike(post._id)}>
+                        Like
+                    </button>
+                    <p>Comments: {post.comments.length}</p>
+                    <ul>
+                        {post.comments.map((comment, index) => (
+                            <li key={index}>{comment.text}</li>
+                        ))}
+                    </ul>
+                    <div>
+                        <input type="text" placeholder="Write a comment..."
+                            value={commentText}
+                            onChange={(e) => setCommentText(e.target.value)} />
+                        <button
+                            onClick={() => handleComment(post._id, commentText)}>
+                            Comment
+                        </button>
+                    </div>
+                </div>
+            ))}
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    );
 }
+
+export default Home;
