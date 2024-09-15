@@ -15,6 +15,7 @@ export default function RootLayout({ children }) {
         <nav>
           {/* Global navigation or other components */}
           <ul>
+            <li style={{color:'white', marginLeft:'10px', fontFamily:'arial'}}>Thursday Club Blog</li>
             <li><a href="/">Home</a></li>
             <li><a href="/create">Create Post</a></li>
           </ul>

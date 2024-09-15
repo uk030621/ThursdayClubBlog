@@ -1,8 +1,17 @@
 /* globals.css */
 
+div.home{
+  border-bottom-left-radius: 20px; /* Radius for bottom-left corner */
+  border-bottom-right-radius: 20px; /* Radius for bottom-right corner */
+}
+
 .home {
   max-width: 800px;
   margin: 0 auto;
+}
+
+div.post{
+  border-radius: 8px;
 }
 
 .post {
@@ -13,13 +22,20 @@
 
 .post h3 {
   color: #333;
+  margin-bottom: 5px ;
 }
 
 .post p {
   color: #555;
+  margin-top: 0px;
+  margin-bottom: 30px;
 }
 
 /* App.css */
+
+div.create-post{
+  border-radius: 8px;
+}
 
 .create-post {
   max-width: 600px;

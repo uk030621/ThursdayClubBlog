@@ -61,23 +61,23 @@ function Home() {
                             <img src={post.file} alt="Post" />
                         </div>
                     )}
-                    <p>Likes: {post.likes}</p>
-                    <button onClick={() => handleLike(post._id)}>
+                    <p style={{marginBottom:'5px'}} >Likes: {post.likes}</p>
+                    <button style={{borderRadius:'6px', padding:'8px'}} onClick={() => handleLike(post._id)}>
                         Like
                     </button>
-                    <p>Comments: {post.comments.length}</p>
+                    <p style={{marginTop:'30px', marginBottom:'0px'}}>Comments: {post.comments.length}</p>
                     <ul>
                         {post.comments.map((comment, index) => (
                             <li key={index}>{comment.text}</li>
                         ))}
                     </ul>
                     <div>
-                        <input type="text" placeholder="Write a comment..."
+                        <input style={{padding:'8px 5px', fontSize:'17px', borderRadius:'6px', border:'1px solid'}} type="text" placeholder="Write a comment..."
                             value={commentText}
                             onChange={(e) => setCommentText(e.target.value)} />
-                        <button
+                        <button style={{borderRadius:'6px', padding:'8px', marginLeft:'5px'}}
                             onClick={() => handleComment(post._id, commentText)}>
-                            Comment
+                            Post
                         </button>
                     </div>
                 </div>

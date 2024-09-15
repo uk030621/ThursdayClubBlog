@@ -52,16 +52,16 @@ function CreatePost() {
         <div className="create-post">
             <h2>Create a Post</h2>
             {error && <p style={{ color: 'red' }}>{error}</p>}
-            <input type="text" name="title"
+            <input style={{padding:'5px', fontSize:'17px', borderRadius:'6px', border:'1px solid'}} type="text" name="title"
                 placeholder="Title" value={newPost.title}
                 onChange={handleInputChange} />
-            <textarea name="content"
+            <textarea style={{padding:'5px', fontSize:'17px', borderRadius:'6px', border:'1px solid'}} name="content"
                 placeholder="Content" value={newPost.content}
                 onChange={handleInputChange}>
             </textarea>
-            <input type="file" name="file"
+            <input style={{paddingLeft:'0'}} type="file" name="file"
                 accept="image/*" onChange={handleFileChange} />
-            <button onClick={handlePostSubmit}>
+            <button style={{borderRadius:'6px'}} onClick={handlePostSubmit}>
                 Post
             </button>
         </div>
