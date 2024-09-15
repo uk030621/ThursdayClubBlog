@@ -129,6 +129,8 @@ div.create-post{
 nav {
   background-color: #333;
   padding: 10px;
+  border-top-left-radius: 8px; /* Ensure top-left has no radius */
+  border-top-right-radius: 8px; /* Ensure top-right has no radius */
 }
 
 nav ul {

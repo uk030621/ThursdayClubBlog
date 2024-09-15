@@ -49,6 +49,7 @@ function CreatePost() {
 
 
     return (
+        <div className='home'>
         <div className="create-post">
             <h2>Create a Post</h2>
             {error && <p style={{ color: 'red' }}>{error}</p>}
@@ -64,6 +65,7 @@ function CreatePost() {
             <button style={{borderRadius:'6px'}} onClick={handlePostSubmit}>
                 Post
             </button>
+        </div>
         </div>
     );
 }
