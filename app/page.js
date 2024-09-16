@@ -49,9 +49,20 @@ function Home() {
         });
     };
 
+    const handleDelete = async (id) => {
+      try {
+        await axios.delete('/api/posts', { data: { id } });
+        setPosts(posts.filter(post => post._id !== id));
+      } catch (error) {
+        console.error('Error deleting post:', error);
+      }
+    };
+
+
+
     return (
         <div className="home">
-            <h2 style={{fontFamily:'arial'}}>Recent Posts</h2>
+            <h2>Recent Posts</h2>
             {posts.map((post) => (
                 <div key={post._id} className="post">
                     <h3>{post.title}</h3>
@@ -78,6 +89,9 @@ function Home() {
                         <button style={{borderRadius:'6px', padding:'8px', marginLeft:'5px'}}
                             onClick={() => handleComment(post._id, commentText)}>
                             Post
+                        </button>
+                        <button style={{ borderRadius: '6px', padding: '8px', marginLeft: '10px' }} onClick={() => handleDelete(post._id)}>
+                          Delete
                         </button>
                     </div>
                 </div>

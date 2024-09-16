@@ -4,7 +4,7 @@ div.home{
   border-bottom-left-radius: 20px; /* Radius for bottom-left corner */
   border-bottom-right-radius: 20px; /* Radius for bottom-right corner */
   padding-top: 15px;
-  background-color: #befac1;
+  background-color: orange;
 }
 
 .home h2{
@@ -19,7 +19,7 @@ div.home{
 
 div.post{
   border-radius: 8px;
-  background-color: #dcf2dd;
+  background-color: rgba(255, 221, 0, 0.979);
 }
 
 .post {
@@ -42,7 +42,8 @@ div.post{
 /* App.css */
 
 div.create-post{
-  border-radius: 8px;
+  border-radius: 20px;
+  background-color: rgb(255, 221, 0);
 }
 
 .create-post {
@@ -137,8 +138,8 @@ div.create-post{
 nav {
   background-color: hsla(0, 0%, 0%, 0.727);
   padding: 10px;
-  border-top-left-radius: 8px; /* Ensure top-left has no radius */
-  border-top-right-radius: 8px; /* Ensure top-right has no radius */
+  border-top-left-radius: 0px; /* Ensure top-left has no radius */
+  border-top-right-radius: 0px; /* Ensure top-right has no radius */
 }
 
 nav ul {
@@ -163,9 +164,6 @@ nav a:hover {
   font-weight: bold;
 }
 
-div.create-post{
-  background-color: #dcf2dd;
-}
 
 .create-post,
 .home {
