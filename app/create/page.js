@@ -51,12 +51,12 @@ function CreatePost() {
     return (
         <div className='home'>
         <div className="create-post">
-            <h2>Create a Post</h2>
+            <h2 style={{fontFamily:'arial', fontSize:'1.3rem'}}>Create a Post</h2>
             {error && <p style={{ color: 'red' }}>{error}</p>}
-            <input style={{padding:'5px', fontSize:'17px', borderRadius:'6px', border:'1px solid'}} type="text" name="title"
+            <input style={{fontFamily:'arial', padding:'5px', fontSize:'17px', borderRadius:'6px', border:'1px solid'}} type="text" name="title"
                 placeholder="Title" value={newPost.title}
                 onChange={handleInputChange} />
-            <textarea style={{padding:'5px', fontSize:'17px', borderRadius:'6px', border:'1px solid'}} name="content"
+            <textarea style={{fontFamily:'arial', padding:'5px', fontSize:'17px', borderRadius:'6px', border:'1px solid'}} name="content"
                 placeholder="Content" value={newPost.content}
                 onChange={handleInputChange}>
             </textarea>

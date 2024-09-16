@@ -50,19 +50,32 @@ function Home() {
     };
 
     const handleDelete = async (id) => {
-      try {
-        await axios.delete('/api/posts', { data: { id } });
-        setPosts(posts.filter(post => post._id !== id));
-      } catch (error) {
-        console.error('Error deleting post:', error);
+      // Display a confirmation dialog to the user
+      const isConfirmed = window.confirm('Are you sure you want to delete this post? This action cannot be undone.');
+    
+      // Proceed only if the user confirms the deletion
+      if (isConfirmed) {
+        try {
+          // Call the API to delete the post
+          await axios.delete('/api/posts', { data: { id } });
+    
+          // Filter the posts state to remove the deleted post from the UI
+          setPosts(posts.filter(post => post._id !== id));
+        } catch (error) {
+          console.error('Error deleting post:', error);
+        }
+      } else {
+        // If the user cancels, you can optionally log or handle this scenario
+        console.log('Post deletion was canceled by the user.');
       }
     };
+    
 
 
 
     return (
         <div className="home">
-            <h2>Recent Posts</h2>
+            <h2 style={{fontFamily:'arial'}}>Recent Posts</h2>
             {posts.map((post) => (
                 <div key={post._id} className="post">
                     <h3>{post.title}</h3>
@@ -90,9 +103,11 @@ function Home() {
                             onClick={() => handleComment(post._id, commentText)}>
                             Post
                         </button>
-                        <button style={{ borderRadius: '6px', padding: '8px', marginLeft: '10px' }} onClick={() => handleDelete(post._id)}>
-                          Delete
+                        <div>
+                        <button style={{ backgroundColor:'red',borderRadius: '6px', padding: '8px', marginTop: '15px' }} onClick={() => handleDelete(post._id)}>
+                          Delete when no longer needed.
                         </button>
+                        </div>
                     </div>
                 </div>
             ))}

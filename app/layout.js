@@ -15,9 +15,11 @@ export default function RootLayout({ children }) {
         <nav style={{paddingBottom:'20px', paddingTop:'20px'}}>
           {/* Global navigation or other components */}
           <ul>
-            <li style={{color:'white', marginLeft:'10px', fontFamily:'arial', fontWeight:'bold'}}>Thursday Club Blog</li>
-            <li style={{fontFamily:'arial'}}><a href="/">Home</a></li>
-            <li style={{fontFamily:'arial'}} ><a href="/create">Create Post</a></li>
+            <div>
+            <li style={{color:'white', marginLeft:'8px', marginBottom:'15px', fontFamily:'arial', fontWeight:'bolder', fontSize:'1.2rem'}}>Thursday Club Post</li>
+            </div>
+            <li style={{fontFamily:'arial', marginLeft:'10px'}}><a href="/">Home</a></li>
+            <li style={{fontFamily:'arial', marginLeft:'30px'}} ><a href="/create">Create Post</a></li>
           </ul>
         </nav>
         {children} {/* This renders the specific page content */}
