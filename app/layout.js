@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
           {/* Global navigation or other components */}
           <ul>
             <div>
-            <li style={{color:'white', marginLeft:'8px', marginBottom:'15px', fontFamily:'arial', fontWeight:'bolder', fontSize:'1.2rem'}}>Thursday Club Post</li>
+            <li style={{color:'white', marginLeft:'8px', marginBottom:'15px', fontFamily:'arial', fontWeight:'bolder', fontSize:'1.2rem'}}>Bobby and Ken&apos;s Thursday Club</li>
             </div>
             <li style={{fontFamily:'arial', marginLeft:'10px'}}><a href="/">Home</a></li>
             <li style={{fontFamily:'arial', marginLeft:'30px'}} ><a href="/create">Create Post</a></li>
