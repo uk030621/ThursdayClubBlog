@@ -20,19 +20,19 @@ export default function RootLayout({ children }) {
             <li style={{color:'white', marginLeft:'0px', marginBottom:'15px', fontFamily:'arial', fontWeight:'bolder', fontSize:'1.2rem', marginRight:'0px'}}>Bobby and Ken&apos;s Thursday Club</li>
             </div>
             <details style={{ textAlign: 'center', marginBottom: '10px' }}>
-  <summary style={{color:'yellow', cursor: 'pointer', fontSize: '1.2rem', fontFamily:'arial', fontSize:'0.7rem'}}></summary>
-  <div style={{ marginLeft: '0px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-    <Image
-      className='uk-pic'
-      src="/team.png"
-      alt="Portfolio Image"
-      width={300}
-      height={150}
-      display='priority'
-      style={{ marginLeft: '0px', marginBottom: '10px', borderRadius: '8px' }}
-    />
-  </div>
-</details>
+              <summary style={{color:'yellow', cursor: 'pointer', fontSize: '1.2rem', fontFamily:'arial', fontSize:'0.7rem'}}></summary>
+                <div style={{ marginLeft: '0px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <Image
+                    className='uk-pic'
+                    src="/team.PNG"
+                    alt="Portfolio Image"
+                    width={300}
+                    height={150}
+                    display='priority'
+                    style={{ marginLeft: '0px', marginBottom: '10px', borderRadius: '8px' }}
+                  />
+                </div>
+          </details>
             <li style={{fontFamily:'arial', marginLeft:'10px'}}><a href="/">Home</a></li>
             <li style={{fontFamily:'arial', marginLeft:'30px'}} ><a href="/create">Create Post</a></li>
           </ul>
