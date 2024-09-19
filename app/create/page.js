@@ -60,8 +60,8 @@ function CreatePost() {
                 placeholder="Content" value={newPost.content}
                 onChange={handleInputChange}>
             </textarea>
-            <input style={{paddingLeft:'0'}} type="file" name="file"
-                accept="image/*" onChange={handleFileChange} />
+            {/*<input style={{paddingLeft:'0'}} type="file" name="file"
+                accept="image/*" onChange={handleFileChange} />*/}
             <button style={{borderRadius:'6px'}} onClick={handlePostSubmit}>
                 Post
             </button>
