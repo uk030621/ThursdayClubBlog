@@ -34,8 +34,8 @@ export default function RootLayout({ children }) {
                 </div>
           </details>
             <li style={{fontFamily:'arial', marginLeft:'10px'}}><a href="/">Home</a></li>
-            <li style={{fontFamily:'arial', marginLeft:'30px'}} ><a href="/create">Create Post</a></li>
-            <li style={{fontFamily:'arial', marginLeft:'30px'}} ><a href="https://vercel.live/link/basic-reg-app.vercel.app?via=project-dashboard-alias-list&p=1">Event Registration</a></li>
+            <li style={{fontFamily:'arial', marginLeft:'20px'}} ><a href="/create">Create Post</a></li>
+            <li style={{fontFamily:'arial', marginLeft:'20px'}} ><a href="https://vercel.live/link/basic-reg-app.vercel.app?via=project-dashboard-alias-list&p=1">Event Registration</a></li>
           </ul>
         </nav>
         {children} {/* This renders the specific page content */}
